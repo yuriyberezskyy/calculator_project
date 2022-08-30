@@ -24,16 +24,28 @@ operations = {
   "/": devide
 }
 
-num1 = int(input("What's the first number?: "))
 
+def calculation():
+  num1 = int(input("What's the first number?: "))
+  
+  is_next_number = True  
+  
+  while(is_next_number):
+    for symbol in operations:
+      print(symbol)
+    
+    operation_symbol = input("Pick an operation from the line above: ")
+    
+    num2 = int(input("What's the next number?: "))
+    func = operations[operation_symbol]
+    answer = func(num1,num2)
+  
+    is_next_step = input(f"Type 'y' to continue calculating with {answer}, or type 'n' to exit: ")
+  
+    if is_next_step == 'y':
+      num1 = answer
+    else:
+      is_next_number = False
+      calculation()
 
-for symbol in operations:
-  print(symbol)
-
-operation_symbol = input("Pick an operation from the line above: ")
-
-num2 = int(input("What's the second number?: "))
-func = operations[operation_symbol]
-answer = func(num1,num2)
-
-print(f"{num1} {operation_symbol} {num2} = {answer}")
+calculation()

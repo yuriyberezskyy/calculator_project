@@ -1,6 +1,6 @@
 import art
 
-print(art.logo)
+
 #Add
 def add(n1,n2):
   return n1+n2
@@ -26,7 +26,8 @@ operations = {
 
 
 def calculation():
-  num1 = int(input("What's the first number?: "))
+  print(art.logo)
+  num1 = float(input("What's the first number?: "))
   
   is_next_number = True  
   
@@ -36,7 +37,7 @@ def calculation():
     
     operation_symbol = input("Pick an operation from the line above: ")
     
-    num2 = int(input("What's the next number?: "))
+    num2 = float(input("What's the next number?: "))
     func = operations[operation_symbol]
     answer = func(num1,num2)
   
